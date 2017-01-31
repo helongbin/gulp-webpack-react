@@ -1,7 +1,9 @@
 /**
  * Created by Robin on 2017/1/30.
  */
-var webpack = require("webpack");
+var webpack = require("webpack"),
+    ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
     entry: {
         "about": "./src/js/about/app.js",
@@ -16,11 +18,20 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: "babel"
+                loader: "babel",
+                query: {
+                    presets: ["es2015", "react"]
+                }
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract('style', ['css', 'less'])
             }
         ]
     },
     plugins: [
-        new webpack.OldWatchingPlugin()
+        new webpack.OldWatchingPlugin(),
+        //将less文件单独编译打包到css文件夹下
+        new ExtractTextPlugin("../css/[name].css")
     ]
 };
