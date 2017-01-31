@@ -14,6 +14,13 @@ module.exports = {
         filename: "[name].js"
     },
     module: {
+        /*preLoaders: [
+            {
+                test: /\.(js|jsx)$/,
+                loader: "eslint",
+                exclude: /node_modules/
+            }
+        ],*/
         loaders: [
             {
                 test: /\.(js|jsx)$/,
@@ -25,7 +32,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style', ['css', 'less'])
+                loader: ExtractTextPlugin.extract("style", ["css", "less"])
             }
         ]
     },
@@ -33,5 +40,11 @@ module.exports = {
         new webpack.OldWatchingPlugin(),
         //将less文件单独编译打包到css文件夹下
         new ExtractTextPlugin("../css/[name].css")
-    ]
+    ],
+    esLint: {
+        configFile: "./.eslintrc",
+        failOnWarning: true,
+        failOnError: true,
+        cache: true
+    }
 };
