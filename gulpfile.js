@@ -6,8 +6,7 @@ var gulp = require("gulp"),
     less = require("gulp-less"),
     cssmin = require("gulp-cssmin"),
     cached = require("gulp-cached"),
-    remember = require("gulp-remember"),
-    webpack = require("webpack");
+    remember = require("gulp-remember");
 
 //html task
 gulp.task("html", function () {
@@ -15,19 +14,19 @@ gulp.task("html", function () {
         .pipe(gulp.dest("./dist/html"));
 });
 
-/*//less task
+//less task
 gulp.task("less", function () {
-    gulp.src("./src/less/!**!/!*.less")
+    gulp.src("./src/less/*.less")
         .pipe(less())
         .pipe(cssmin())
         .pipe(gulp.dest("./dist/css"));
-});*/
+});
 
 
 //watch task
-/*gulp.task("watch", function () {
+gulp.task("watch", function () {
     //watch less
-    var lessSrc = "./src/less/!**!/!*.less",
+    var lessSrc = "./src/less/**/*.less",
         lessWatch = "watchLess";
     gulp.task(lessWatch, function () {
         gulp.src("./src/less/!*.less")
@@ -44,16 +43,16 @@ gulp.task("less", function () {
             remember.forget(lessWatch, event.path);         // gulp-remember 的删除 api
         }
     });
-});*/
+});
 
-/*//js task and watch js
+//js task and watch js
 gulp.task("js", function () {
     var config = require("./webpack.config.js");
     config.watch = true;
     webpack(config).watch(200, function (error, stats) {
         console.log(error);
     });
-});*/
+});
 
 //dev
-gulp.task("default", ["html", "less", "js"]);
+gulp.task("default", ["html", "less"]);
