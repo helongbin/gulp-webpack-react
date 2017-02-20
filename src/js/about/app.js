@@ -1,16 +1,26 @@
 
-/**
- * Created by Robin on 2017/1/30.
- */
 import "../../../src/less/about.less";
 
+import React from "react";
+import ReactDOM from "react-dom";
+import ContentHeader from "../components/contentHeader";
+import Section from "../components/section";
 
-var a = [];
-for (let i = 0; i < 10; i++) {
-    a[i] = function () {
-        console.log(i);
-    };
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div id="app">
+                <ContentHeader title="Amenities"/>
+                <Section title="Deporset Fees"/>
+            </div>
+        );
+    }
 }
-a[5](); // 6
 
-var aaa = 9999;
+ReactDOM.render(
+    <App/>,
+    document.getElementById("content")
+);
