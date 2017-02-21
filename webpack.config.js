@@ -55,6 +55,14 @@ module.exports = {
                         use: ["css-loader", "postcss-loader", "less-loader"]
                     })
             },
+            {
+                test:   /\.(ttf|otf|eot|svg|woff2?)(\?.+)?$/,
+                loader: "url-loader",
+                options:  {
+                    limit: 10000,
+                    name: "icons/[name].[ext]"
+                }
+            }
 
         ]
     },

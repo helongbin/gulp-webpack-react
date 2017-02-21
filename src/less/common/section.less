@@ -1,12 +1,25 @@
 
 #component-section {
+  background: #fff;
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h3 {
+    padding: 0 15px;
+    cursor: pointer;
+    h2 {
       display: inline-flex;
+      margin: 15px 0;
     }
+  }
+  .section-header:hover {
+    background: #eff8f8;
+  }
+  .section-content {
+    padding: 15px;
+  }
+  .section-content-inactive {
+    display: none;
   }
 
 }
