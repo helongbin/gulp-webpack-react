@@ -13,17 +13,12 @@ var PATHS = {
 };
 
 module.exports = {
-    /*devServer: {
+    devServer: {
         port: 8080,
         historyApiFallback: true,
-        contentBase: PATHS.dist,
-        publicPath: "/",
-        watchContentBase: true,
-        watchOptions: {
-            poll: true,
-            aggregateTimeout: 300,
-        }
-    },*/
+        publicPath: "/", //重写了output的publicpath
+        inline: true
+    },
     entry: {
         "about": PATHS.src + "/js/about/app.js",
         "home": PATHS.src + "/js/home/app.js"
@@ -67,6 +62,7 @@ module.exports = {
         ]
     },
     plugins: [
+        //new webpack.HotModuleReplacementPlugin(),
         //将less文件单独编译打包到css文件夹下
         new ExtractTextPlugin({
             filename: "css/[name].css"
