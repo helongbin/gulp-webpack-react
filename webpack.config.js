@@ -17,7 +17,13 @@ module.exports = {
         port: 8080,
         historyApiFallback: true,
         publicPath: "/", //重写了output的publicpath
-        inline: true
+        inline: true,
+        proxy: {
+            "/api/*": {
+                target: "http://localhost:9090",
+                secure: false
+            }
+        }
     },
     entry: {
         "about": PATHS.src + "/js/about/app.js",
