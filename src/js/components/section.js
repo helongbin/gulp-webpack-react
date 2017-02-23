@@ -1,5 +1,6 @@
 
 import React from "react";
+import Checkbox from "./checkbox";
 
 export default class Section extends React.Component {
     constructor(props) {

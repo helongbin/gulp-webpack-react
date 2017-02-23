@@ -19,6 +19,6 @@
                 }
             }
 5. 开始调用api
-    浏览器地址栏输入 localhost:8080/api/issues
-    此请求等价于     localhost:9090/issues
-    此请求将获取db.json中的issue字段数据
+    浏览器地址栏输入 localhost:8080/api/test
+    此请求等价于     localhost:9090/test
+    此请求将获取db.json中的test字段数据
